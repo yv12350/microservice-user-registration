@@ -31,7 +31,15 @@ public class UserService {
     public List<UserModel> listAllUser() throws Exception {
         try {
             return userDao.findAll();
-        } catch (Exception e){
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    public List<UserModel> getUserById(Integer id) throws Exception {
+        try {
+            return userDao.findByUserId(id);
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
